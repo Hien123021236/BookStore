@@ -1,0 +1,116 @@
+
+
+.logo_Pane{
+    -fx-background-image: url("../GUI/Icons/hotel_logo_.png"); 
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-color:  #1737D2;
+    -fx-background-radius: 5;
+}
+
+.login_Pane{
+    -fx-background-color: white;
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 30, 0 , 0, 0);
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    
+}
+
+.exit_Button{
+    -fx-background-image:  url("../GUI/Icons/exit_icon.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 20 20;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+}
+.exit_Button:hover{
+    -fx-background-color: #e3e3e3;
+    -fx-background-radius: 15;
+    -fx-cursor: hand;
+}
+
+.login_Label{
+    -fx-font-size: 30;
+    -fx-text-fill: #727272;
+    -fx-font-weight: bold;
+}
+
+.user_TextField{
+    -fx-font-size: 14;
+    -fx-background-color: rgb(231, 231, 231);
+    -fx-prompt-text-fill: rgb(140, 140, 140);
+}
+
+.user_Icon{
+    -fx-background-image: url("../GUI/Icons/user_icon.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 20 20;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+  
+}
+
+.password_PasswordField{
+    -fx-font-size: 14;
+    -fx-background-color: rgb(231, 231, 231);
+    -fx-prompt-text-fill: rgb(140, 140, 140);
+}
+
+.password_Icon{
+    -fx-background-image: url("../GUI/Icons/password_icon.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 20 20;
+    -fx-background-position: center;
+    -fx-background-color: transparent;  
+}
+
+
+.login_Button{
+    -fx-background-color: #009900;
+    -fx-background-radius: 20;
+    -fx-text-fill: white;
+    -fx-font-size: 18;
+}
+
+.login_Button:hover{
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 10, 0 , 0, 0);
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.remember_CheckBox{
+    -fx-text-fill: #727272;
+}
+
+.Forgot_Label{
+     -fx-text-fill: #727272;
+}
+
+.databaseMgmt_Label{
+    -fx-font-size: 22;  
+    -fx-text-fill: #727272;
+    -fx-rotate: 90;
+    -fx-padding:  0 0 0 0;
+}
+
+.databaseMgmt_Label:hover{
+    -fx-cursor: hand;
+    -fx-text-fill: blue;
+}
+
+.loginMgmt_Label{
+    -fx-font-size: 22;  
+    -fx-text-fill: #727272;
+    -fx-rotate: 270;
+    -fx-padding:  0 0 0 0;
+}
+.loginMgmt_Label:hover{
+    -fx-cursor: hand;
+    -fx-text-fill: blue;
+}
+
+.Notification_Label{
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+}
+

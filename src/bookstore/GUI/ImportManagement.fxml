@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="ImportManagement" prefHeight="698.0" prefWidth="1166.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookstore.GUI.ImportManagementController">
+    <stylesheets>
+        <URL value="@ImportManagement.css" />
+    </stylesheets>
+   <children>
+      <TableView fx:id="ImportCoupon_TableView" layoutX="124.0" layoutY="183.0" prefHeight="558.0" prefWidth="675.0" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="450.0" AnchorPane.topAnchor="70.0">
+        <columns>
+          <TableColumn fx:id="ImportID_TableColunm" prefWidth="157.0" text="Import ID" />
+          <TableColumn fx:id="EmployeeID_TableColunm" prefWidth="172.0" text="Employee ID" />
+            <TableColumn fx:id="Datetime_TableColunm" prefWidth="189.0" text="Datetime" />
+            <TableColumn fx:id="TotalAmount_TableColunm" prefWidth="149.0" text="Total Amount" />
+        </columns>
+      </TableView>
+      <TableView fx:id="BookNeedImported_TableView" layoutX="792.0" layoutY="115.0" prefHeight="558.0" prefWidth="369.0" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="750.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="170.0">
+        <columns>
+          <TableColumn fx:id="BookID_TableColunm" prefWidth="111.0" text="Book ID" />
+          <TableColumn fx:id="Title_TableColunm" prefWidth="171.0" text="Title" />
+            <TableColumn fx:id="Quatity_TableColunm" prefWidth="91.0" text="Quatity" />
+        </columns>
+      </TableView>
+      <AnchorPane layoutX="778.0" layoutY="77.0" prefHeight="56.0" prefWidth="376.0" AnchorPane.leftAnchor="750.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="70.0">
+         <children>
+            <TextField layoutX="39.0" layoutY="30.0" prefHeight="40.0" style="-fx-background-radius: 5 0 0 5;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Button layoutX="215.0" layoutY="19.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="SearchButton" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+         </children>
+      </AnchorPane>
+      <Label alignment="CENTER" layoutX="45.0" layoutY="40.0" prefHeight="25.0" prefWidth="671.0" style="-fx-background-color: blue;" text="All The Import Coupon :" textFill="WHITE" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="450.0" AnchorPane.topAnchor="32.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <padding>
+            <Insets bottom="5.0" top="5.0" />
+         </padding>
+      </Label>
+      <Label layoutX="750.0" layoutY="143.0" text="Books need imported :" AnchorPane.leftAnchor="750.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="Refresh_Button" layoutX="660.0" layoutY="643.0" mnemonicParsing="false" text="Refresh" AnchorPane.rightAnchor="450.0" />
+      <Button fx:id="Add_Button" layoutX="557.0" layoutY="643.0" mnemonicParsing="false" text="Add" AnchorPane.leftAnchor="40.0" />
+      <Button fx:id="Edit_Button" layoutX="106.0" layoutY="643.0" mnemonicParsing="false" text="Edit" />
+   </children>
+</AnchorPane>

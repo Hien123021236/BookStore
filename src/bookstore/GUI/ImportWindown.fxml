@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="415.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookstore.GUI.ImportWindownController">
+    <stylesheets>
+        <URL value="@ImportWindown.css" />
+    </stylesheets>
+   <children>
+      <Label alignment="CENTER" layoutX="10.0" layoutY="14.0" prefHeight="40.0" prefWidth="254.0" style="-fx-background-color: blue;" text="Import Coupon" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="ImportID_Label" layoutX="40.0" layoutY="57.0" text="Import ID :" AnchorPane.leftAnchor="40.0" />
+      <TextField fx:id="ImportID_TextField" editable="false" layoutX="125.0" layoutY="53.0" prefHeight="25.0" prefWidth="250.0" style="-fx-background-color: rgb(244, 244, 244);" AnchorPane.leftAnchor="125.0" />
+      <TextField fx:id="EmployeeID_TextField" editable="false" layoutX="125.0" layoutY="87.0" prefHeight="25.0" prefWidth="250.0" style="-fx-background-color: rgb(244, 244, 244);" AnchorPane.leftAnchor="125.0" />
+      <Label layoutX="40.0" layoutY="91.0" text="Employee :" AnchorPane.leftAnchor="40.0" />
+      <TextField fx:id="Datetime_TextField" editable="false" layoutX="125.0" layoutY="120.0" prefHeight="25.0" prefWidth="250.0" style="-fx-background-color: rgb(244, 244, 244);" AnchorPane.leftAnchor="125.0" />
+      <Label layoutX="40.0" layoutY="124.0" text="Datetime :" AnchorPane.leftAnchor="40.0" />
+      <TextField fx:id="TotalAmount_TextField" editable="false" layoutX="125.0" layoutY="153.0" prefHeight="25.0" prefWidth="250.0" style="-fx-background-color: rgb(244, 244, 244);" AnchorPane.leftAnchor="125.0" />
+      <Label layoutX="40.0" layoutY="157.0" text="Total Amount :" AnchorPane.leftAnchor="40.0" />
+      <TableView fx:id="ImportBook_TableView" layoutX="40.0" layoutY="204.0" prefHeight="212.0" prefWidth="335.0" AnchorPane.bottomAnchor="184.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
+        <columns>
+          <TableColumn fx:id="BookID_TableColumn" prefWidth="63.0" text="Book ID" />
+          <TableColumn fx:id="Title_TableColumn" prefWidth="131.0" text="Title" />
+            <TableColumn fx:id="Cost_TableColumn" prefWidth="73.0" text="Cost" />
+            <TableColumn fx:id="Count_TableColumn" prefWidth="67.0" text="Count" />
+        </columns>
+      </TableView>
+      <ComboBox fx:id="BookID_ComboBox" layoutX="40.0" layoutY="461.0" prefHeight="25.0" prefWidth="102.0" AnchorPane.leftAnchor="40.0" />
+      <TextField fx:id="Cost_TextField" layoutX="153.0" layoutY="461.0" prefHeight="25.0" prefWidth="86.0" />
+      <TextField fx:id="Count_TextField" layoutX="250.0" layoutY="461.0" prefHeight="25.0" prefWidth="58.0" />
+      <Button fx:id="Import_Button" layoutX="323.0" layoutY="461.0" mnemonicParsing="false" text="Import" AnchorPane.rightAnchor="40.0" />
+      <Label layoutX="41.0" layoutY="441.0" text="Book ID :" />
+      <Label layoutX="251.0" layoutY="441.0" text="Count :" />
+      <Button fx:id="Save_Button" layoutX="187.0" layoutY="548.0" mnemonicParsing="false" text="Save" AnchorPane.rightAnchor="187.0" />
+      <Label layoutX="154.0" layoutY="441.0" text="Cost:" />
+      <Label fx:id="NewBook_Label" layoutX="41.0" layoutY="507.0" text="New Book" textFill="#0718ff" underline="true" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,12 @@
+.SearchButton{
+    -fx-background-color: rgb(51, 122, 183);
+    -fx-background-radius: 0 5 5 0;
+    -fx-background-image: url("../GUI/Icons/search_icon_32.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 20 20;
+}
+
+.SearchButton:hover{
+    -fx-background-color: blue;
+}

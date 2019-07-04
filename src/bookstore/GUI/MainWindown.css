@@ -1,0 +1,212 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+    
+}
+
+.top_Pane{
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 15, 0 , 0, 0);
+    -fx-pref-height: 70;
+}
+
+
+.left_Pane{
+    -fx-background-color: #13007b;
+}
+
+
+.function_Button{
+    
+    -fx-background-color: transparent;
+    -fx-text-fill: rgb(200,200,200);  
+    -fx-alignment: center_left;
+    -fx-padding: 0 0 0 50;
+    -fx-font-size: 14;
+    -fx-font-weight: bold;
+    -fx-pref-width: 200;
+    -fx-pref-height: 50;    
+    -fx-translate-y: 50;
+    -fx-border-width: 1 0 0 0;
+    -fx-border-color: rgb(100, 100, 100);
+    -fx-background-position: 10;
+    -fx-background-size: 30 30;
+    -fx-background-repeat: no-repeat;
+}
+
+.function_Button:focused{
+    -fx-background-color: #002eff;   
+    -fx-text-fill: white;
+    -fx-border-width: 0 0 0 4;
+    -fx-border-color: white;
+    -fx-padding: 0 0 0 46;
+
+}
+
+.function_Button:hover{    
+    -fx-text-fill: white;
+}
+
+.Room_Button{
+    -fx-background-image: url("../GUI/Icons/room_icon.png");
+}
+.CheckIn_Button{
+    -fx-background-image: url("../GUI/Icons/check-in_icon.png");
+}
+.CheckOut_Button{
+    -fx-background-image: url("../GUI/Icons/check-out_icon.png");
+}
+.Customer_Button{
+    -fx-background-image: url("../GUI/Icons/customer_icon.png");
+}
+.Employee_Button{
+    -fx-background-image: url("../GUI/Icons/employee_icon.png");
+}
+.Services_Button{
+    -fx-background-image: url("../GUI/Icons/services_icon.png");
+}
+.Statistic_Button{
+    -fx-background-image: url("../GUI/Icons/statistic_icon.png");
+}
+.Help_Button{
+    -fx-background-image: url("../GUI/Icons/help_icon.png");
+}
+.Regulation_Button{
+    -fx-background-image: url("../GUI/Icons/regulations_icon.png");
+}
+
+
+.triangle{
+    -fx-background-color: rgb(244, 244, 244);
+    -fx-pref-width: 14;
+    -fx-pref-height: 14;     
+    -fx-background-radius: 0;
+    -fx-rotate: 45;
+    visibility: hidden;
+          
+}
+
+.account_Button{
+    -fx-pref-width: 40;
+    -fx-pref-height: 40;  
+    -fx-background-image: url("../GUI/Icons/account_icon.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 100%;
+    -fx-background-position: center;
+    -fx-background-radius: 20;
+    -fx-background-color:transparent;
+}
+
+.account_Button:hover{
+    -fx-background-color: rgb(210, 210, 210);
+}
+
+.exit_Button{
+    -fx-background-image:  url("../GUI/Icons/exit_icon.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 20 20;
+    -fx-background-radius: 15;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+}
+
+.exit_Button:hover{
+    -fx-background-color: rgb(210, 210, 210);
+}
+
+.infobookwiew{
+    -fx-background-color: white;
+    -fx-border-width: 25 2 2 2;
+    -fx-border-color:rgb(224, 224, 224);
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.3) , 20, 0 , 0, 10);
+}
+
+
+
+
+/* ----------------- Import Book Table pane -------------------*/
+.no_colunm{
+    
+}
+
+
+/* ----------------- Import Function Button -------------------*/
+.function_button{
+    -fx-background-color: rgb(223, 223, 223);
+    -fx-background-radius: 20;
+    -fx-pref-width: 150;
+    -fx-pref-height: 40;
+    -fx-font-weight: bold;
+    -fx-alignment: center_left;
+    -fx-padding: 0 0 0 50;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 20;
+    -fx-background-size: 20 20;
+}
+.function_button:hover{
+     -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.5) , 20, 0 , 0, 0);
+}
+.add_button{
+     -fx-background-image: url("../GUI/Icons/add_icon.png");   
+}    
+.edit_button{
+     -fx-background-image: url("../GUI/Icons/edit_icon.png");   
+}
+.delete_button{
+     -fx-background-image: url("../GUI/Icons/delete_icon.png");   
+}
+  
+
+
+.edit_Button{
+    -fx-background-image: url("../GUI/Icons/edit_icon.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 25 25;
+    -fx-background-position: top;
+    -fx-background-color: transparent;
+    -fx-background-radius: 13;
+    -fx-alignment: bottom-center;
+    -fx-opacity: 0.5;
+}
+.edit_Button:hover{
+    -fx-opacity: 1;
+}
+
+.save_Button{
+    -fx-background-image: url("../GUI/Icons/save_icon.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 25 25;
+    -fx-background-position: top;
+    -fx-background-color: transparent;
+    -fx-background-radius: 13;
+    -fx-alignment: bottom-center;
+    -fx-opacity: 0.5;
+}
+.save_Button:hover{
+    -fx-opacity: 1;
+}
+
+
+
+
+.HorizonalEditFunction{
+    -fx-background-color: rgb(223, 223, 223);
+    -fx-background-radius: 20;
+    -fx-pref-width: 120;
+    -fx-pref-height: 40;
+    -fx-font-weight: bold;
+    -fx-alignment: center_left;
+    -fx-padding: 0 0 0 40;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 10;
+    -fx-background-size: 20 20;
+}
+
+.HorizonalEditFunction:hover{
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.5) , 20, 0 , 0, 0);
+}
+
+
+
+

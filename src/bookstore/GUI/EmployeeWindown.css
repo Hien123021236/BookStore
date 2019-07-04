@@ -1,0 +1,7 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.EmployeeIamge{
+    -fx-image : url("../GUI/Icons/account_icon_96.png");
+}

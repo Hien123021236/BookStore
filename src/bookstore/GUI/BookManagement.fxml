@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="BooKManagement" prefHeight="698.0" prefWidth="1166.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookstore.GUI.BookManagementController">
+    <stylesheets>
+        <URL value="@BookManagement.css" />
+    </stylesheets>
+   <children>
+      <ScrollPane layoutX="89.0" layoutY="116.0" prefHeight="534.0" prefWidth="764.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="70.0">
+         <content>
+            <FlowPane fx:id="ListBook_FlowPane" hgap="20.0" minHeight="100.0" prefWidth="760.0" vgap="20.0">
+               <padding>
+                  <Insets bottom="20.0" left="20.0" top="20.0" />
+               </padding></FlowPane>
+         </content>
+      </ScrollPane>
+      <Label fx:id="ListBook_Label" alignment="CENTER" layoutX="58.0" layoutY="81.0" prefHeight="40.0" style="-fx-background-color: rgb(183, 122, 51); -fx-background-radius: 5 5 0 0;" text="All Books" textFill="WHITE" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="30.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="849.0" layoutY="84.0" prefHeight="84.0" prefWidth="279.0" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="84.0">
+         <children>
+            <TextField layoutX="39.0" layoutY="30.0" prefHeight="40.0" style="-fx-background-radius: 5 0 0 5;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Button layoutX="215.0" layoutY="19.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="SearchButton" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+         </children>
+      </AnchorPane>
+      <ScrollPane layoutX="880.0" layoutY="184.0" prefHeight="450.0" prefWidth="280.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="850.0" AnchorPane.rightAnchor="40.0">
+        <content>
+          <AnchorPane minHeight="100.0" minWidth="0.0" prefWidth="270.0">
+               <children>
+                  <VBox fx:id="ListCategory_VBox" minHeight="100.0" prefWidth="270.0" spacing="10.0">
+                     <padding>
+                        <Insets left="20.0" top="20.0" />
+                     </padding>
+                  </VBox>
+               </children></AnchorPane>
+        </content>
+      </ScrollPane>
+      <Label alignment="CENTER" layoutX="852.0" layoutY="162.0" prefHeight="40.0" prefWidth="273.0" style="-fx-background-color: rgb(51, 122, 183); -fx-background-radius: 5 5 0 0;" text="Categories" textFill="WHITE" AnchorPane.bottomAnchor="490.0" AnchorPane.leftAnchor="850.0" AnchorPane.rightAnchor="40.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="Refresh_button" layoutX="841.0" layoutY="38.0" mnemonicParsing="false" text="Refresh" />
+   </children>
+</AnchorPane>

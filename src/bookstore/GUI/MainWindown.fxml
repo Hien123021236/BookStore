@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="root" prefHeight="768.0" prefWidth="1366.0" styleClass="mainFxmlClass" stylesheets="@MainWindown.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookstore.GUI.MainWindownController">
+   <children>
+      <MenuBar prefHeight="70.0" prefWidth="1000.0" styleClass="top_Pane" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <AnchorPane prefHeight="70.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button alignment="CENTER" layoutX="22.0" layoutY="21.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="48.0" styleClass="account_Button" AnchorPane.rightAnchor="1304.0" AnchorPane.topAnchor="21.0">
+               <contextMenu>
+                  <ContextMenu>
+                    <items>
+                      <MenuItem fx:id="AccountInfor_MenuItem" mnemonicParsing="false" text="Account Informations" />
+                        <MenuItem fx:id="Logout_MenuItem" mnemonicParsing="false" text="Logout" />
+                    </items>
+                  </ContextMenu>
+               </contextMenu></Button>
+            <Label fx:id="EmployeeName" layoutX="73.0" layoutY="22.0" prefHeight="19.0" text="Account" AnchorPane.leftAnchor="75.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="EmployeeRole" layoutX="71.0" layoutY="41.0" prefHeight="17.0" text="Position" AnchorPane.leftAnchor="75.0" />
+            <Button fx:id="Exit" layoutX="1321.0" layoutY="23.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" styleClass="exit_Button" />
+         </children>
+      </AnchorPane>
+      <VBox layoutY="70.0" prefHeight="632.0" prefWidth="200.0" styleClass="left_Pane" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="70.0">
+         <children>
+            <Accordion />
+            <Button fx:id="RoomBtn" alignment="BASELINE_LEFT" contentDisplay="RIGHT" mnemonicParsing="false" text="Books">
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <styleClass>
+                  <String fx:value="function_Button" />
+                  <String fx:value="Room_Button" />
+               </styleClass></Button>
+            <Button fx:id="ImportBtn" mnemonicParsing="false" text="Import Books">
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <styleClass>
+                  <String fx:value="function_Button" />
+                  <String fx:value="CheckIn_Button" />
+               </styleClass></Button>
+            <Button mnemonicParsing="false" text="Bills">
+               <styleClass>
+                  <String fx:value="function_Button" />
+                  <String fx:value="Statistic_Button" />
+               </styleClass>
+            </Button>
+            <Button fx:id="CustomerBtn" mnemonicParsing="false" text="Customers">
+               <styleClass>
+                  <String fx:value="function_Button" />
+                  <String fx:value="Customer_Button" />
+               </styleClass>
+            </Button>
+            <Button mnemonicParsing="false" text="Regulation Manager">
+               <styleClass>
+                  <String fx:value="function_Button" />
+                  <String fx:value="Regulation_Button" />
+               </styleClass>
+            </Button>
+            <Button mnemonicParsing="false" text="Help">
+               <styleClass>
+                  <String fx:value="function_Button" />
+                  <String fx:value="Help_Button" />
+               </styleClass>
+            </Button>
+         </children>
+      </VBox>
+      <Pane fx:id="Needle" prefWidth="22.0" style="-fx-background-color: white;" styleClass="triangle" />
+      <AnchorPane fx:id="MgmtPane" layoutX="213.0" layoutY="76.0" prefHeight="230.0" prefWidth="221.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0" />
+   </children>
+</AnchorPane>

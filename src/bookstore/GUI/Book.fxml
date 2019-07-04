@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="root" prefHeight="260.0" prefWidth="130.0" styleClass="root" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookstore.GUI.BookController">
+    <stylesheets>
+        <URL value="@Book.css" />
+    </stylesheets>
+   <children>
+      <Button fx:id="Image_Button" mnemonicParsing="false" prefHeight="200.0" prefWidth="150.0" text="Button" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <contextMenu>
+            <ContextMenu />
+         </contextMenu>
+      </Button>
+      <Label fx:id="Title_Label" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="38.0" layoutY="168.0" text="Title" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="200.0">
+         <padding>
+            <Insets left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </Label>
+      <Label fx:id="Quantity_Label" layoutX="88.0" layoutY="22.0" minWidth="25.0" prefHeight="25.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black;" text="1" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <padding>
+            <Insets left="7.0" right="7.0" />
+         </padding>
+      </Label>
+   </children>
+</AnchorPane>
