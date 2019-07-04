@@ -9,6 +9,7 @@ import bookstore.BLL.Book;
 import bookstore.BLL.ImportCoupon;
 import bookstore.BLL.ImportCouponDetail;
 import bookstore.DAL.BookDTO;
+import bookstore.DAL.DataType;
 import bookstore.DAL.ImportCouponDTO;
 import java.io.IOException;
 import java.net.URL;
@@ -27,9 +28,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -64,6 +67,9 @@ public class ImportWindownController implements Initializable {
     private TableView ImportBook_TableView;
     
     @FXML
+    private MenuItem RemoveBook_MenuItem;
+    
+    @FXML
     private TableColumn BookID_TableColumn;
     
     @FXML
@@ -93,11 +99,27 @@ public class ImportWindownController implements Initializable {
     @FXML
     private Button Save_Button;
     
-    
+    private ImportManagementController importManagementController;
+    private Stage stage;
     private ImportCoupon importCoupon;
     private ObservableList<ImportCouponDetail> ObsListBooksImported = FXCollections.observableArrayList( );
 
-    
+    public Stage getStage() {
+        return stage;
+    }
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
+
+    public ImportManagementController getImportManagementController() {
+        return importManagementController;
+    }
+
+    public void setImportManagementController(ImportManagementController importManagementController) {
+        this.importManagementController = importManagementController;
+    }
+   
     public void setImportCoupon(ImportCoupon importCoupon) {
         this.importCoupon = importCoupon;
     }
@@ -106,10 +128,15 @@ public class ImportWindownController implements Initializable {
         return importCoupon;
     }
 
-    public void SetNewMode(){        
+    public void Load(){
+        LoadBookIDComboBox();
+        LoadListImportBooks();
+    }
+    
+    public void SetNewMode(){
         importCoupon = new ImportCoupon();     
         importCoupon.setImportID(Integer.toString((new ImportCouponDTO()).GetImportIdMax()+1));      
-        importCoupon.setEmployeeID("  ");  
+        importCoupon.setEmployeeID(importManagementController.getMainWindownController().getEmployee().getEmployeeID());
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");  
         Date date = new Date(System.currentTimeMillis()); 
         importCoupon.setDatetime(formatter.format(date));
@@ -123,13 +150,18 @@ public class ImportWindownController implements Initializable {
         LoadBookIDComboBox();
     }
     
-    public void SetEditMode(){
+    public void SetViewMode(){
         if(importCoupon != null){
             ImportID_TextField.setText(importCoupon.getImportID());
             EmployeeID_TextField.setText(importCoupon.getEmployeeID());
             Datetime_TextField.setText(importCoupon.getDatetime());
             TotalAmount_TextField.setText(Integer.toString(importCoupon.getTotalAmount()));
+            Save_Button.setVisible(false);
             LoadBookIDComboBox();
+            ObsListBooksImported.clear();
+            for (ImportCouponDetail icd : importCoupon.getListImportDetail()) {
+                ObsListBooksImported.add(icd);
+            }
         }
     }
     
@@ -153,17 +185,42 @@ public class ImportWindownController implements Initializable {
         Import_Button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                ImportCouponDetail icd = new ImportCouponDetail();
-                icd.setImportCouponID(ImportID_TextField.getText());
-                icd.setBookID(BookID_ComboBox.getValue());
-                icd.setPrice(Integer.parseInt(Cost_TextField.getText()));
-                icd.setQuantity(Integer.parseInt(Count_TextField.getText()));
-                
-                importCoupon.getListImportDetail().add(icd);
-                LoadListImportBooks();
-                LoadBookIDComboBox();
-                Cost_TextField.setText("");
-                Count_TextField.setText("");
+                if(CheckInputImport()){
+                    ImportCouponDetail icd = new ImportCouponDetail();
+                    icd.setImportCouponID(ImportID_TextField.getText());
+                    icd.setBookID(BookID_ComboBox.getValue());
+                    icd.setPrice(Integer.parseInt(Cost_TextField.getText()));
+                    icd.setQuantity(Integer.parseInt(Count_TextField.getText()));
+                    
+                    importCoupon.getListImportDetail().add(icd);
+                    importCoupon.setTotalAmount(icd.getPrice() * icd.getQuantity());
+                    TotalAmount_TextField.setText(Integer.toString(importCoupon.getTotalAmount()));
+                    LoadListImportBooks();
+                    LoadBookIDComboBox();
+                    Cost_TextField.setText("");
+                    Count_TextField.setText(""); 
+                    
+                }
+                else{
+                    Cost_TextField.setText("");
+                    Count_TextField.setText("");
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("Warning");
+                    alert.setHeaderText("Input invalid value!");
+                    alert.setContentText("Please enter valid value");
+                    alert.showAndWait();
+                }
+            }
+        });
+        
+        Save_Button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                InsertDatabase();
+                if(importManagementController != null)
+                    importManagementController.Load();
+                if(stage != null)
+                    stage.close();
             }
         });
     }    
@@ -173,8 +230,10 @@ public class ImportWindownController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/bookstore/GUI/BookWindown.fxml"));
             Parent BookWindown = loader.load();
             BookWindownController controller = (BookWindownController)loader.getController();
+            controller.setImportManagementController(importManagementController);
             controller.SetNewMode();
             Stage stage = new Stage(StageStyle.UNIFIED);
+            controller.setStage(stage);
             Scene scene = new Scene(BookWindown);     
             stage.setScene(scene);    
             stage.show();
@@ -183,6 +242,7 @@ public class ImportWindownController implements Initializable {
             Logger.getLogger(LoginWindownController.class.getName()).log(Level.SEVERE, null, ex);
         }   
     }
+
 
     private void LoadListImportBooks(){
         if(importCoupon != null){
@@ -204,4 +264,27 @@ public class ImportWindownController implements Initializable {
         }
     }
     
+    private void InsertDatabase(){
+        if(importCoupon != null){
+            ImportCouponDTO icDTO = new ImportCouponDTO();
+            icDTO.InsertDatabse(importCoupon);
+        }
+    }
+    
+    private void DeleteDatabase(){
+        if(importCoupon != null){
+            ImportCouponDTO icDTO = new ImportCouponDTO();
+            icDTO.DeleteDatabase(importCoupon);
+        }
+    }
+    
+    private boolean CheckInputImport(){
+        if(BookID_ComboBox.getValue()== null)
+            return false;
+        if(new DataType().isNumeric(Cost_TextField.getText())== false)
+            return false;
+        if(new DataType().isNumeric(Count_TextField.getText())== false)
+            return false;
+        return true;
+    }
 }

@@ -54,6 +54,6 @@
       </Label>
       <Button fx:id="Refresh_Button" layoutX="660.0" layoutY="643.0" mnemonicParsing="false" text="Refresh" AnchorPane.rightAnchor="450.0" />
       <Button fx:id="Add_Button" layoutX="557.0" layoutY="643.0" mnemonicParsing="false" text="Add" AnchorPane.leftAnchor="40.0" />
-      <Button fx:id="Edit_Button" layoutX="106.0" layoutY="643.0" mnemonicParsing="false" text="Edit" />
+      <Button fx:id="Delete_Button" layoutX="106.0" layoutY="643.0" mnemonicParsing="false" text="Delete" />
    </children>
 </AnchorPane>

@@ -27,4 +27,7 @@ public class DataType {
         }
         return s;
     }
+    public boolean isNumeric(String str) {
+        return str.matches("-?\\d+(\\.\\d+)?");  
+    }
 }

@@ -6,6 +6,7 @@
 package bookstore.GUI;
 
 import bookstore.BLL.Book;
+import bookstore.DAL.BookDTO;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -70,18 +71,27 @@ public class BookManagementController implements Initializable {
         LoadCategories(); 
     }
     
-    
+     public void Load(){
+        LoadBooks();
+        LoadCategories(); 
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Refresh_button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                Load();
+                LoadFromDatabase();
             }
         });
     }    
     
+    
+    private void LoadFromDatabase(){
+       BookDTO bDTO = new BookDTO();
+       setListBooks(bDTO.GetAllBooks());
+       setListCategores(bDTO.GetAllCategories());
+    }
     
     private void LoadBooks(){
         if(ListBooks != null){
@@ -112,8 +122,5 @@ public class BookManagementController implements Initializable {
         }
     }
     
-    private void Load(){
-        LoadBooks();
-        LoadCategories(); 
-    }
+   
 }

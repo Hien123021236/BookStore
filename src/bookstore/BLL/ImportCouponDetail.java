@@ -12,6 +12,7 @@ import bookstore.DAL.BookDTO;
  * @author Orics
  */
 public class ImportCouponDetail {
+    private String ImportCouponDetailID;
     private String ImportCouponID;
     private String BookID;
     private String BookTitle;
@@ -29,6 +30,10 @@ public class ImportCouponDetail {
         this.Quantity = Quantity;
     }
 
+    public String getImportCouponDetailID() {
+        return ImportCouponDetailID;
+    }
+    
     public String getImportCouponID() {
         return ImportCouponID;
     }
@@ -49,6 +54,10 @@ public class ImportCouponDetail {
         BookDTO bDTO = new BookDTO();
         BookTitle = bDTO.GetBook(BookID).getTitle();
         return BookTitle;
+    }
+
+    public void setImportCouponDetailID(String ImportCouponDetailID) {
+        this.ImportCouponDetailID = ImportCouponDetailID;
     }
 
     public void setImportCouponID(String ImportCouponID) {

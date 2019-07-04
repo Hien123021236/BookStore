@@ -6,8 +6,11 @@
 package bookstore.GUI;
 
 import bookstore.BLL.Employee;
+import bookstore.DAL.DataType;
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -81,7 +84,7 @@ public class EmployeeWindownController implements Initializable {
         Name_TextField.setEditable(false);
         Gender_ComboBox.getEditor().setEditable(false);
         DateOfBirth_DatePicker.setEditable(false);
-        Attack_Button.setVisible(false);
+        Attack_Button.setVisible(false);             
     }
     
     public void SetNewMode(){
@@ -130,7 +133,9 @@ public class EmployeeWindownController implements Initializable {
             Role_TextField.setText(employee.getRole());
             Name_TextField.setText(employee.getName());
             Gender_ComboBox.setValue(employee.getGender());
-            DateOfBirth_DatePicker.setValue(LocalDate.MAX);
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");  
+            String date = (new DataType()).FormatDatetimeString(employee.getDateOfBirth(), "yyyy-MM-dd", "dd-MM-yyyy");
+            DateOfBirth_DatePicker.setValue(LocalDate.parse(date, formatter));
         }  
     }
     

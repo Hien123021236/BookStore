@@ -76,10 +76,22 @@ public class ImportManagementController implements Initializable {
     private Button Add_Button;
     
     @FXML
-    private Button Edit_Button;
+    private Button Delete_Button;
     
     @FXML
     private Button Refresh_Button;
+    
+    private MainWindownController mainWindownController;
+
+    public MainWindownController getMainWindownController() {
+        return mainWindownController;
+    }
+
+    public void setMainWindownController(MainWindownController mainWindownController) {
+        this.mainWindownController = mainWindownController;
+    }
+    
+    
     
     private ArrayList<ImportCoupon> ListImportCoupon;
     private ArrayList<Book> ListBooksNeedImported;
@@ -114,12 +126,32 @@ public class ImportManagementController implements Initializable {
             }
         });
         
-        Edit_Button.setOnAction(new EventHandler<ActionEvent>() {
+        Delete_Button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                OpenImportWindown("Edit");
+                ImportCoupon ic = (ImportCoupon) ImportCoupon_TableView.getSelectionModel().getSelectedItem();
+                if(ic != null){
+                    DeleteImportCoupon(ic);
+                    LoadImportCoupons();
+                }
+                else{
+                    Alert alert = new Alert(AlertType.WARNING);
+                    alert.setTitle("Warning");
+                    alert.setHeaderText("No Import coupon selected !");
+                    alert.setContentText("Please select a import coupon.");
+                    alert.showAndWait();
+                    return;
+                }
             }
         });
+        
+        Refresh_Button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Load();
+            }
+        });
+        
     }
     
     private void LoadImportCoupons(){
@@ -151,14 +183,15 @@ public class ImportManagementController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/bookstore/GUI/ImportWindown.fxml"));
             Parent ImportWindown = loader.load();
             ImportWindownController controller = (ImportWindownController)loader.getController();
+            controller.setImportManagementController(this);
             if(mode.compareTo("New") == 0)
                 controller.SetNewMode();
             else
-            if(mode.compareTo("Edit") == 0){
+            if(mode.compareTo("View") == 0){
                 ImportCoupon ic = (ImportCoupon) ImportCoupon_TableView.getSelectionModel().getSelectedItem();
                 if(ic != null){
                     controller.setImportCoupon((ImportCoupon) ImportCoupon_TableView.getSelectionModel().getSelectedItem());
-                    controller.SetEditMode();
+                    controller.SetViewMode();
                 }
                 else{
                     Alert alert = new Alert(AlertType.WARNING);
@@ -173,9 +206,17 @@ public class ImportManagementController implements Initializable {
             Scene scene = new Scene(ImportWindown);     
             stage.setScene(scene);    
             stage.show();
+            controller.setStage(stage);
             
         } catch (IOException ex) {
             Logger.getLogger(LoginWindownController.class.getName()).log(Level.SEVERE, null, ex);
         }   
-    }  
+    } 
+    
+    private void DeleteImportCoupon(ImportCoupon ic){
+        if(ic != null){
+            ImportCouponDTO icDTO = new ImportCouponDTO();
+            icDTO.DeleteDatabase(ic);
+        }
+    }
 }

@@ -2,6 +2,10 @@
  * Empty Stylesheet file.
  */
 
-.mainFxmlClass {
-
+.AnotherCategory{
+    
+}
+.AnotherCategory:hover{
+    -fx-cursor: hand;
+    -fx-background-color: #adadad;
 }

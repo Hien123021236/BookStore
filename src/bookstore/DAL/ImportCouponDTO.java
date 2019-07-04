@@ -43,11 +43,12 @@ public class ImportCouponDTO {
         if(dt != null){
             for (int i = 0; i < dt.getRowCount(); i++) {
                 ImportCouponDetail icd = new ImportCouponDetail();
-                icd.setImportCouponID(dt.getValue()[i][0]);
-                icd.setBookID(dt.getValue()[i][1]);
+                icd.setImportCouponDetailID(dt.getValue()[i][0]);
+                icd.setImportCouponID(dt.getValue()[i][1]);
+                icd.setBookID(dt.getValue()[i][2]);
                 try {
-                    icd.setPrice(Integer.parseInt(dt.getValue()[i][2]));
-                    icd.setQuantity(Integer.parseInt(dt.getValue()[i][3]));
+                    icd.setPrice(Integer.parseInt(dt.getValue()[i][3]));
+                    icd.setQuantity(Integer.parseInt(dt.getValue()[i][4]));
                 } catch (Exception e) {
                     System.out.println("GetImportCouponDetails: fail convert String to Int");
                     return null;
@@ -68,8 +69,37 @@ public class ImportCouponDTO {
             return n;
         } catch (Exception e) {
             System.out.println("GetImportIdMax: fail convert to int");
-            return -1;      
-        }  
+            return 9999;
+        }
     }
     
+    public void InsertDatabse(ImportCoupon ic){
+        String sql =    "begin\n" +
+                        "set dateformat dmy\n" +
+                        "insert into NhapSach(MaNhap, MaNV, ThoiGian, TongTien) values ('@','@','@','@')\n" +
+                        "end";
+        sql = sql.replaceFirst("@", ic.getImportID());
+        sql = sql.replaceFirst("@", ic.getEmployeeID());
+        sql = sql.replaceFirst("@", ic.getDatetime());
+        sql = sql.replaceFirst("@", Integer.toString(ic.getTotalAmount()));
+        DatabaseAccess da = new DatabaseAccess();
+        da.ExecuteNonQuery(sql);
+        
+        for (ImportCouponDetail icd : ic.getListImportDetail()) {
+            ImportCouponDetailDTO icdDTO = new ImportCouponDetailDTO();
+            icdDTO.InsertDatabase(icd);
+        }   
+    }
+    
+    public void DeleteDatabase(ImportCoupon ic){
+        if(ic != null){
+            DatabaseAccess da = new DatabaseAccess();
+            for (ImportCouponDetail icd : ic.getListImportDetail()) {
+                String sql = "delete ChitietNhapSach where MaCTNS = " + icd.getImportCouponDetailID();
+                da.ExecuteNonQuery(sql);
+            }
+            String sql = "delete NhapSach where MaNhap = " + ic.getImportID();
+            da.ExecuteNonQuery(sql);
+        }
+    }
 }

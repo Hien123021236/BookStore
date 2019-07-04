@@ -212,6 +212,7 @@ public class MainWindownController implements Initializable {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/bookstore/GUI/ImportManagement.fxml"));
                 Parent ImportManagement = loader.load();
                 ImportManagementController controller = (ImportManagementController)loader.getController();
+                controller.setMainWindownController(this);
                 controller.Load();
                 MgmtPane.getChildren().add(ImportManagement);
                 ImportMngmLoaded = true; 

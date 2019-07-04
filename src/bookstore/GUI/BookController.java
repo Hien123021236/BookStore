@@ -133,6 +133,7 @@ public class BookController implements Initializable {
             Parent BookWindown = loader.load();
             BookWindownController controller = (BookWindownController)loader.getController();
             controller.setBook(book);
+            controller.SetEditMode();
             Stage stage = new Stage(StageStyle.UNIFIED);
             Scene scene = new Scene(BookWindown);     
             stage.setScene(scene);    
