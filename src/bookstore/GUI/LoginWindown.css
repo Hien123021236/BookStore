@@ -1,7 +1,7 @@
 
 
 .logo_Pane{
-    -fx-background-image: url("../GUI/Icons/hotel_logo_.png"); 
+    /*-fx-background-image: url("../GUI/Icons/bookstore_logo.jpg"); */
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-color:  #1737D2;
